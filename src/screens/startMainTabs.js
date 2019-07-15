@@ -1,17 +1,30 @@
+import { Platform } from 'react-native'
 import { Navigation } from 'react-native-navigation'
-import Icon from '../../node_modules/react-native-vector-icons/MaterialCommunityIcons'
-
+import Icon from '../../node_modules/react-native-vector-icons/Ionicons'
 
 const startMainTabs = async () => {
-   const mapIcon = await Icon.getImageSource('map-search', 30)
-   const shareIcon = await Icon.getImageSource('share', 30)
-   const hamburger = await Icon.getImageSource('menu', 30)
+   const iconPrefix = Platform.OS === 'android' ? 'md-' : 'ios-'
+   const mapIcon = await Icon.getImageSource(iconPrefix + 'map', 30)
+   const shareIcon = await Icon.getImageSource(iconPrefix + 'share-alt', 30)
+   const hamburger = await Icon.getImageSource(iconPrefix + 'menu', 30)
    const menuButton = {
       id: 'leftDrawerButton',
       icon: hamburger,
       testID: 'LEFT_DRAWER_BUTTON',
       showAsAction: 'always'
    }
+
+   Navigation.setDefaultOptions({
+      topBar: {
+         leftButtons: [
+            menuButton
+         ],
+         leftButtonColor: 'orange'
+      },
+      bottomTab: {
+         selectedIconColor: 'orange'
+      }
+   })
 
    Navigation.setRoot({
       root: {
@@ -38,10 +51,7 @@ const startMainTabs = async () => {
                            topBar: {
                               title: {
                                  text: 'Find Place'
-                              },
-                              leftButtons: [
-                                 menuButton
-                              ]
+                              }
                            },
                            bottomTab: {
                               text: 'Find Place',
@@ -65,10 +75,7 @@ const startMainTabs = async () => {
                            topBar: {
                               title: {
                                  text: 'Share Place'
-                              },
-                              leftButtons: [
-                                 menuButton
-                              ]
+                              }
                            },
                            bottomTab: {
                               text: 'Share Place',

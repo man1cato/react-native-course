@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, ScrollView, Button, StyleSheet } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { connect } from 'react-redux'
@@ -12,66 +12,57 @@ import H1Text from '../components/UI/H1Text'
 import imagePlaceholder from '../assets/bg.jpg'
 
 
-class SharePlaceScreen extends React.Component {
-   state = {
-      placeName: ''
-   }
+const SharePlaceScreen = (props) => {
+   const [placeName, setPlaceName] = useState('')
 
-   componentDidMount() {
-      this.navigationEventListener = Navigation.events().bindComponent(this)
-   }   
-
-   navigationButtonPressed({ buttonId }) {
+   Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
       if (buttonId === 'leftDrawerButton') {
-         Navigation.mergeOptions(this.props.componentId, {
+         Navigation.mergeOptions(props.componentId, {
             sideMenu: {
-               left: { 
+               left: {
                   visible: true
                }
             }
          })
       }
+   })   
+
+   const handlePlaceNameChange = val => {
+      setPlaceName(val)
    }
 
-   handlePlaceNameChange = val => {
-      console.log('FROM HANDLER: ', val)
-      this.setState({ placeName: val })
-   }
-
-   handleAddPlace = () => {
-      if (this.state.placeName.trim() !== '') {
-         this.props.addPlace(this.state.placeName)
-         this.setState({ placeName: '' })
+   const handleAddPlace = () => {
+      if (placeName.trim() !== '') {
+         props.addPlace(placeName)
+         setPlaceName('')
       }
    }
 
-   render () {
-      return (
-         <ScrollView>
-            <View style={styles.container}>
-               <H1Text>Share a place with us!</H1Text>
-               
-               <ImagePicker source={imagePlaceholder}/>
-               
-               <LocationPicker />
+   return (
+      <ScrollView>
+         <View style={styles.container}>
+            <H1Text>Share a place with us!</H1Text>
+            
+            <ImagePicker source={imagePlaceholder}/>
+            
+            <LocationPicker />
 
-               <View style={styles.inputContainer}>
-                  <PlaceInput 
-                     placeName={this.state.placeName} 
-                     onChangeText={this.handlePlaceNameChange}
+            <View style={styles.inputContainer}>
+               <PlaceInput 
+                  placeName={placeName} 
+                  onChangeText={handlePlaceNameChange}
+               />
+               <View style={styles.button}>
+                  <Button
+                     title="Share"
+                     onPress={() => handleAddPlace()}
                   />
-                  <View style={styles.button}>
-                     <Button
-                        title="Share"
-                        onPress={this.handleAddPlace}
-                     />
-                  </View>
                </View>
-
             </View>
-         </ScrollView>
-      )
-   }
+
+         </View>
+      </ScrollView>
+   )   
 }
 
 const styles = StyleSheet.create({

@@ -1,14 +1,19 @@
 import React from 'react'
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native'
-import Icon from '../../node_modules/react-native-vector-icons/MaterialCommunityIcons'
+import { View, Text, TouchableOpacity, Platform, StyleSheet } from 'react-native'
+import Icon from '../../node_modules/react-native-vector-icons/Ionicons'
 
 
-const SideDrawer = () => {
+const SideDrawer = props => {
    return (
       <View style={styles.container}>
          <TouchableOpacity>
             <View style={styles.drawerItem}>
-               <Icon style={styles.drawerItemIcon} name="logout-variant" size={30} color="#aaa"/>
+               <Icon 
+                  style={styles.drawerItemIcon} 
+                  name={Platform.OS === "android" ? "md-log-out" : "ios-log-out"}
+                  size={30} 
+                  color="#aaa"
+               />
                <Text>Logout</Text>
             </View>            
          </TouchableOpacity>

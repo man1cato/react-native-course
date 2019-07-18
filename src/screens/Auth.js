@@ -1,17 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { View, Dimensions, ImageBackground, StyleSheet } from 'react-native'
+import { View, Text, Dimensions, ImageBackground, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { connect } from 'react-redux'
+import * as yup from 'yup'
+import update from 'immutability-helper'
+import _ from 'lodash'
 
 import startMainTabs from './startMainTabs'
 import DefaultInput from '../components/UI/DefaultInput'
 import H1Text from '../components/UI/H1Text'
 import ButtonWithBackground from '../components/UI/ButtonWithBackground'
-
+import { tryAuth } from '../store/actions/auth'
 import backgroundImage from '../assets/bg.jpg'
 
 
-const AuthScreen = () => {
-   const [viewMode, setViewMode] = useState(Dimensions.get('window').height > 500 ? 'portrait' : 'landscape') 
-   
+let schema = yup.object().shape({
+   email: yup.string().required('Required').email('Enter a valid email'),
+   password: yup.string()
+      .required('Required')
+      .min(7, 'Password must be at least 7 characters')
+      .max(20, 'Password must be no more than 20 characters')
+      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&-]).{8,10}$/, 'Password must contain lowercase, uppercase, numbers, and special characters')
+})
+
+const AuthScreen = props => {
    useEffect(() => {
       const handler = (dims) => setViewMode(dims.window.height > 500 ? 'portrait' : 'landscape')
       Dimensions.addEventListener('change', handler)
@@ -19,34 +30,144 @@ const AuthScreen = () => {
          Dimensions.removeEventListener('change', handler)
       }
    }, [])
-   
-   const handleLogin = () => {
-      startMainTabs()
+
+   const [viewMode, setViewMode] = useState(Dimensions.get('window').height > 500 ? 'portrait' : 'landscape')
+   const [authMode, setAuthMode] = useState('login')
+   const [controls, setControls] = useState({
+      email: { value: '', valid: false, errorMessage: null },
+      password: { value: '', valid: false, errorMessage: null },
+      passwordConfirmation: { value: '', valid: false, errorMessage: null }
+   })
+
+   const handleTextInput = (key, value) => {
+      setControls(update(controls, {
+         [key]: {
+            value: { $set: value.trim() }
+         }
+      }))
    }
-   
-   let headingText = null
-   if (viewMode === 'portrait') {
-      headingText = (<H1Text style={{color: "white"}}>Please Log In</H1Text>)
+
+   const handleValidation = (key) => {
+      if (key === 'passwordConfirmation') {
+         if (controls.passwordConfirmation.value === controls.password.value && controls.password.valid) {
+            setControls(update(controls, {
+               passwordConfirmation: {
+                  valid: { $set: true },
+                  errorMessage: { $set: null }
+               }
+            }))
+         } else {
+            setControls(update(controls, {
+               passwordConfirmation: {
+                  valid: { $set: false },
+                  errorMessage: { $set: 'Passwords must match' }
+               }
+            }))
+         }         
+      } else {
+         yup.reach(schema, key).validate(controls[key].value).then(() => {
+            setControls(update(controls, {
+               [key]: {
+                  valid: { $set: true },
+                  errorMessage: { $set: null }
+               }
+            }))
+         }).catch(err => {
+            setControls(update(controls, {
+               [key]: {
+                  valid: { $set: false },
+                  errorMessage: { $set: err.errors[0] }
+               }
+            }))
+         })
+      }
+   }
+
+   useEffect(() => {
+      handleValidation('email')
+   }, [controls.email.value])
+
+   useEffect(() => {
+      handleValidation('password')
+   }, [controls.password.value])
+
+   useEffect(() => {
+      handleValidation('passwordConfirmation')
+   }, [controls.passwordConfirmation.value])
+
+   const handleLogin = () => {
+      const authData = {
+         email: controls.email.value,
+         password: controls.password.value
+      }
+      props.login(authData)
+      startMainTabs()
    }
 
    return (
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
-         <View style={styles.container}>
-            {headingText}
-            <ButtonWithBackground color="#29aaf4" onPress={() => alert('clicked!')}>Switch to Login</ButtonWithBackground>
+         <KeyboardAvoidingView style={styles.container} >
+            {viewMode === 'portrait' && (
+               <H1Text style={{ color: "white" }}>Please Log In</H1Text>
+            )}
+
+            <ButtonWithBackground
+               color="#29aaf4"
+               onPress={() => setAuthMode(authMode === 'login' ? 'signup' : 'login')}
+            >
+               Switch to {authMode === 'login' ? 'Sign Up' : 'Log In'}
+            </ButtonWithBackground>
+
             <View style={styles.inputContainer}>
-               <DefaultInput style={styles.input} placeholder="Email Address" />
-               <View style={viewMode === 'portrait' ? styles.portraitPasswordContainer : styles.landscapePasswordContainer}>
-                  <View style={viewMode === 'portrait' ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
-                     <DefaultInput style={styles.input} placeholder="Password" />
+               <DefaultInput
+                  style={styles.input}
+                  placeholder="Email Address"
+                  autoCapitalize="none"
+                  autoCorrect={false}
+                  keyboardType="email-address"
+                  onChangeText={val => handleTextInput('email', val)}
+               />
+               {!!controls.email.errorMessage && (
+                  <Text style={{ color: 'white' }}>{controls.email.errorMessage}</Text>
+               )}
+
+               <View style={viewMode === 'landscape' && authMode === 'signup' ? styles.landscapePasswordContainer : styles.portraitPasswordContainer}>
+                  <View style={viewMode === 'landscape' && authMode === 'signup' ? styles.landscapePasswordWrapper : styles.portraitPasswordWrapper}>
+                     <DefaultInput
+                        style={styles.input}
+                        placeholder="Password"
+                        secureTextEntry
+                        onChangeText={val => handleTextInput('password', val)}
+                     />
+                     {!!controls.password.errorMessage && (
+                        <Text style={{ color: 'white' }}>{controls.password.errorMessage}</Text>
+                     )}
                   </View>
-                  <View style={viewMode === 'portrait' ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
-                     <DefaultInput style={styles.input} placeholder="Confirm Password" />
-                  </View>
+
+                  {authMode === 'signup' && (
+                     <View style={viewMode === 'portrait' ? styles.portraitPasswordWrapper : styles.landscapePasswordWrapper}>
+                        <DefaultInput
+                           style={styles.input}
+                           placeholder="Confirm Password"
+                           secureTextEntry
+                           onChangeText={val => handleTextInput('passwordConfirmation', val)}
+                        />
+                        {!!controls.passwordConfirmation.errorMessage && (
+                           <Text style={{ color: 'white' }}>{controls.passwordConfirmation.errorMessage}</Text>
+                        )}
+                     </View>
+                  )}
                </View>
             </View>
-            <ButtonWithBackground color="#29aaf4" onPress={() => handleLogin()}>Submit</ButtonWithBackground>
-         </View>
+
+            <ButtonWithBackground
+               color="#29aaf4"
+               disabled={!controls.email.valid || !controls.password.valid || authMode==='signup' && !controls.passwordConfirmation.valid}
+               onPress={() => handleLogin()}
+            >
+               Submit
+            </ButtonWithBackground>
+         </KeyboardAvoidingView>
       </ImageBackground>
    )
 }
@@ -60,7 +181,7 @@ const styles = StyleSheet.create({
    backgroundImage: {
       width: "100%",
       flex: 1
-   }, 
+   },
    input: {
       backgroundColor: "#eee",
       borderColor: "#bbb"
@@ -79,11 +200,15 @@ const styles = StyleSheet.create({
       justifyContent: "space-between"
    },
    portraitPasswordWrapper: {
-      width: "100%" 
+      width: "100%"
    },
    landscapePasswordWrapper: {
       width: "48%"
    }
 })
 
-export default AuthScreen
+const mapDispatchToProps = dispatch => ({
+   login: (authData) => dispatch(tryAuth(authData))
+})
+
+export default connect(null, mapDispatchToProps)(AuthScreen)

@@ -1,16 +1,19 @@
 import React, { useState } from 'react'
-import { View, ScrollView, Button, StyleSheet } from 'react-native'
+import { View, ScrollView, Button, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { connect } from 'react-redux'
+import * as yup from 'yup'
 
 import { addPlace } from '../store/actions/places'
 import PlaceInput from '../components/PlaceInput'
 import LocationPicker from '../components/LocationPicker'
 import ImagePicker from '../components/ImagePicker'
-
 import H1Text from '../components/UI/H1Text'
 import imagePlaceholder from '../assets/bg.jpg'
 
+let schema = yup.object().shape({
+   placeName: yup.string().required('Required')
+})
 
 const SharePlaceScreen = (props) => {
    const [placeName, setPlaceName] = useState('')
@@ -40,7 +43,7 @@ const SharePlaceScreen = (props) => {
 
    return (
       <ScrollView>
-         <View style={styles.container}>
+         <KeyboardAvoidingView style={styles.container}>
             <H1Text>Share a place with us!</H1Text>
             
             <ImagePicker source={imagePlaceholder}/>
@@ -55,12 +58,13 @@ const SharePlaceScreen = (props) => {
                <View style={styles.button}>
                   <Button
                      title="Share"
+                     disabled={!placeName.trim()}
                      onPress={() => handleAddPlace()}
                   />
                </View>
             </View>
 
-         </View>
+         </KeyboardAvoidingView>
       </ScrollView>
    )   
 }

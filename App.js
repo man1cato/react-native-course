@@ -43,7 +43,8 @@ Navigation.setRoot({
         topBar: {
           title: {
             text: 'Login'
-          }
+          },
+          leftButtons: []
         }
       }
     }

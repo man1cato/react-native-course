@@ -19,7 +19,7 @@ let schema = yup.object().shape({
       .required('Required')
       .min(7, 'Password must be at least 7 characters')
       .max(20, 'Password must be no more than 20 characters')
-      .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&-]).{8,10}$/, 'Password must contain lowercase, uppercase, numbers, and special characters')
+      // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&-]).{8,10}$/, 'Password must contain lowercase, uppercase, numbers, and special characters')
 })
 
 const AuthScreen = props => {
@@ -83,13 +83,9 @@ const AuthScreen = props => {
       }
    }
 
-   useEffect(() => {
-      handleValidation('email')
-   }, [controls.email.value])
-
-   useEffect(() => {
-      handleValidation('password')
-   }, [controls.password.value])
+   // useEffect(() => {
+   //    handleValidation('password')
+   // }, [controls.password.value])
 
    useEffect(() => {
       handleValidation('passwordConfirmation')
@@ -126,6 +122,7 @@ const AuthScreen = props => {
                   autoCorrect={false}
                   keyboardType="email-address"
                   onChangeText={val => handleTextInput('email', val)}
+                  onBlur={() => handleValidation('email')}
                />
                {!!controls.email.errorMessage && (
                   <Text style={{ color: 'white' }}>{controls.email.errorMessage}</Text>
@@ -138,6 +135,7 @@ const AuthScreen = props => {
                         placeholder="Password"
                         secureTextEntry
                         onChangeText={val => handleTextInput('password', val)}
+                        onEndEditing={() => handleValidation('password')}
                      />
                      {!!controls.password.errorMessage && (
                         <Text style={{ color: 'white' }}>{controls.password.errorMessage}</Text>

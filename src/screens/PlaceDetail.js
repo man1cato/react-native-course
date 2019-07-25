@@ -2,14 +2,15 @@ import React, { useState, useEffect } from 'react'
 import { StyleSheet, Text, View, Image, TouchableOpacity, Platform, Dimensions } from 'react-native'
 import { connect } from 'react-redux'
 import { Navigation } from 'react-native-navigation';
+import MapView from 'react-native-maps'
 
-import Icon from '../../node_modules/react-native-vector-icons/Ionicons'
 import { deletePlace } from '../store/actions/places'
+import Icon from '../../node_modules/react-native-vector-icons/Ionicons'
 
 
 const PlaceDetail = (props) => {
    const [viewMode, setViewMode] = useState(Dimensions.get('window').height > 500 ? 'portrait' : 'landscape')
-
+   
    useEffect(() => {
       Navigation.mergeOptions(props.componentId, {
          topBar: {
@@ -22,9 +23,9 @@ const PlaceDetail = (props) => {
             }
          },
       })
-
       const handler = (dims) => setViewMode(dims.window.height > 500 ? 'portrait' : 'landscape')
       Dimensions.addEventListener('change', handler)
+
       return () => {
          Dimensions.removeEventListener('change', handler)
       }
@@ -37,16 +38,30 @@ const PlaceDetail = (props) => {
 
    return (
       <View style={[styles.container, viewMode === 'portrait' ? styles.portraitContainer : styles.landscapeContainer]}>
-         <Image source={props.selectedPlace.image} style={styles.placeImage}/>
+         <View style={[styles.placeContainer, viewMode === 'portrait' ? styles.portraitContainer : styles.landscapeContainer]}>
+            <Image style={styles.placeItem} source={props.selectedPlace.image} />
+            <MapView
+               style={styles.placeItem}
+               initialRegion={{
+                  latitude: props.selectedPlace.location.latitude,
+                  longitude: props.selectedPlace.location.longitude,
+                  latitudeDelta: 0.02,
+                  longitudeDelta: Dimensions.get('window').width / Dimensions.get('window').height * 0.02
+               }}
+            >
+               <MapView.Marker coordinate={props.selectedPlace.location} />
+            </MapView>
+         </View>
 
          <View style={styles.detailsContainer}>
             <Text style={styles.placeName}>{props.selectedPlace.name}</Text>
+
             <View style={styles.buttonContainer}>
                <TouchableOpacity onPress={() => handleDelete()}>
-                  <Icon 
-                     size={30} 
-                     name={Platform.OS === 'android' ? 'md-trash' : 'ios-trash'} 
-                     color="red" 
+                  <Icon
+                     size={30}
+                     name={Platform.OS === 'android' ? 'md-trash' : 'ios-trash'}
+                     color="red"
                   />
                </TouchableOpacity>
             </View>
@@ -57,7 +72,7 @@ const PlaceDetail = (props) => {
 
 const styles = StyleSheet.create({
    container: {
-      flex:1, 
+      flex: 1,
       margin: 22
    },
    portraitContainer: {
@@ -66,18 +81,21 @@ const styles = StyleSheet.create({
    landscapeContainer: {
       flexDirection: 'row',
    },
-   placeImage: {
-      flex: 1
+   placeContainer: {
+      flex: 2
    },
    detailsContainer: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'flex-start'
    },
+   placeItem: {
+      flex: 1
+   },
    placeName: {
       fontWeight: 'bold',
       textAlign: 'center',
-      fontSize: 28
+      fontSize: 24
    },
    buttonContainer: {
       flexDirection: 'row',
@@ -86,7 +104,7 @@ const styles = StyleSheet.create({
 })
 
 const mapDispatchToProps = dispatch => ({
-   deletePlace: (placeKey) => dispatch(deletePlace(placeKey)) 
+   deletePlace: (placeKey) => dispatch(deletePlace(placeKey))
 })
 
 export default connect(null, mapDispatchToProps)(PlaceDetail)

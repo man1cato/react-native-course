@@ -1,17 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
-INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
-MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
-MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
+INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
+MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:2:1-17:12
+MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-12:12
+MERGED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:2:1-23:12
 MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f01c1c0cdf1d16cd071fa5a5cb7077bf\AndroidManifest.xml:2:1-13:12
 MERGED from [com.github.wix-playground:ahbottomnavigation:2.4.9] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\08452704ab1214f94048a93e2b367e7d\AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:design:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\3702720727746487d319e56c97125ac7\AndroidManifest.xml:17:1-24:12
 MERGED from [com.github.wix-playground:reflow-animator:1.0.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\c4ce36ad083e3dfad68ad9a3e7d41575\AndroidManifest.xml:2:1-12:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4af2a918d3db2c14996e1e9e0c199ed0\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:17:1-38:12
+MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\5d524d7b3c610dfce07adae609fa0003\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:17:1-28:12
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\a44cd8912042d2f336205d79f66e5bd9\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\18f967cd1f1aa47f464688d8ce03c753\AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:animated-vector-drawable:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\2439ea79a2685d8c470259862393e752\AndroidManifest.xml:17:1-22:12
@@ -49,6 +55,7 @@ MERGED from [com.facebook.fresco:imagepipeline:1.10.0] C:\Users\andre\.gradle\ca
 MERGED from [com.facebook.fresco:imagepipeline-base:1.10.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\eb0a87d7b1219d306f46d818999bf8f0\AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\bf7aa9dadbd79f098a9fcd6bfd3ccc74\AndroidManifest.xml:2:1-13:12
 MERGED from [com.github.clans:fab:1.6.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f0d4e4d71a2d85dd7c8535723a83482a\AndroidManifest.xml:2:1-14:12
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:2:1-13:12
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\075a3c20b03b3bcf3ef343a3a3a983da\AndroidManifest.xml:2:1-9:12
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:2:1-8:12
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:2:1-8:12
@@ -60,32 +67,58 @@ INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\sr
 		INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml
 	android:versionName
 		INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
 		INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml
 	xmlns:tools
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:3:5-51
 	android:versionCode
 		INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-26:12
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:1-33:12
 		INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml
 	xmlns:android
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
 ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:9:5-67
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:24:5-67
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:24:5-67
 	android:name
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:5:5-79
+	android:name
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:5:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:6:5-65
+	android:name
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:6:22-62
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:7:5-81
+	android:name
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:6:5-24:19
-MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:6:5-24:19
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:9:5-31:19
+MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:9:5-31:19
+MERGED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:9:5-31:19
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:11:5-15:19
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:11:5-15:19
+MERGED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
+MERGED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:11:5-21:19
 MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f01c1c0cdf1d16cd071fa5a5cb7077bf\AndroidManifest.xml:11:5-20
 MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f01c1c0cdf1d16cd071fa5a5cb7077bf\AndroidManifest.xml:11:5-20
 MERGED from [com.github.wix-playground:ahbottomnavigation:2.4.9] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\08452704ab1214f94048a93e2b367e7d\AndroidManifest.xml:11:5-20
 MERGED from [com.github.wix-playground:ahbottomnavigation:2.4.9] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\08452704ab1214f94048a93e2b367e7d\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\3702720727746487d319e56c97125ac7\AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:design:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\3702720727746487d319e56c97125ac7\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:30:5-36:19
+MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\5d524d7b3c610dfce07adae609fa0003\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\5d524d7b3c610dfce07adae609fa0003\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:22:5-26:19
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\54d3e4760984c89540bec2c932823409\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:support-compat:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\54d3e4760984c89540bec2c932823409\AndroidManifest.xml:22:5-94
 MERGED from [com.android.support:versionedparcelable:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\97e317c2b2b07cdcb8828242c0f077a7\AndroidManifest.xml:22:5-23:19
@@ -94,68 +127,80 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\andre\.gradle\caches
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\bf7aa9dadbd79f098a9fcd6bfd3ccc74\AndroidManifest.xml:11:5-20
 MERGED from [com.github.clans:fab:1.6.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f0d4e4d71a2d85dd7c8535723a83482a\AndroidManifest.xml:12:5-20
 MERGED from [com.github.clans:fab:1.6.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f0d4e4d71a2d85dd7c8535723a83482a\AndroidManifest.xml:12:5-20
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:7:5-11:19
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:7:5-11:19
 	android:appComponentFactory
 		ADDED from [com.android.support:support-compat:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\54d3e4760984c89540bec2c932823409\AndroidManifest.xml:22:18-91
 	android:label
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:8:7-39
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:8:7-39
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:11:7-39
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:11:7-39
 	tools:ignore
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:7:75-114
 	android:roundIcon
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:10:7-52
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:10:7-52
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:13:7-52
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:13:7-52
 	tools:targetApi
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:7:54-74
 	android:icon
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:9:7-41
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:9:7-41
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:12:7-41
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:12:7-41
 	android:allowBackup
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:11:7-34
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:11:7-34
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:14:7-34
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:14:7-34
 	android:theme
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:12:7-38
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:12:7-38
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:15:7-38
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:15:7-38
 	android:usesCleartextTraffic
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:7:18-53
 	android:name
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:7:7-38
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:7:7-38
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:10:7-38
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:10:7-38
 activity#com.react_native_course.MainActivity
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:13:7-22:18
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:16:7-25:18
 	android:label
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:15:9-41
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:18:9-41
 	android:windowSoftInputMode
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:17:9-51
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:20:9-51
 	android:configChanges
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:16:9-79
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:19:9-79
 	android:name
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:14:9-37
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:17:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:18:9-21:25
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:21:9-24:25
 action#android.intent.action.MAIN
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:19:13-65
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:22:13-65
 	android:name
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:19:21-62
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:22:21-62
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:20:13-73
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:23:13-73
 	android:name
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:20:23-70
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:23:23-70
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:23:7-84
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:26:7-84
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:12:9-14:40
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:12:9-14:40
 	android:exported
 		ADDED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:14:13-37
 	android:name
-		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:23:17-81
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:26:17-81
+meta-data#com.google.android.geo.API_KEY
+ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:27:7-30:9
+	android:value
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:29:9-64
+	android:name
+		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml:28:9-54
 uses-sdk
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\main\AndroidManifest.xml
-MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
-MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:7:5-9:41
 MERGED from [:react-native-navigation] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-navigation\lib\android\app\build\intermediates\library_manifest\reactNative57_5Debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-vector-icons\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:5:5-7:41
+MERGED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f01c1c0cdf1d16cd071fa5a5cb7077bf\AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.59.8] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f01c1c0cdf1d16cd071fa5a5cb7077bf\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.wix-playground:ahbottomnavigation:2.4.9] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\08452704ab1214f94048a93e2b367e7d\AndroidManifest.xml:7:5-9:41
@@ -166,6 +211,14 @@ MERGED from [com.github.wix-playground:reflow-animator:1.0.4] C:\Users\andre\.gr
 MERGED from [com.github.wix-playground:reflow-animator:1.0.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\c4ce36ad083e3dfad68ad9a3e7d41575\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4af2a918d3db2c14996e1e9e0c199ed0\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:appcompat-v7:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\4af2a918d3db2c14996e1e9e0c199ed0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\5d524d7b3c610dfce07adae609fa0003\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:16.0.1] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\5d524d7b3c610dfce07adae609fa0003\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\a44cd8912042d2f336205d79f66e5bd9\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-v4:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\a44cd8912042d2f336205d79f66e5bd9\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-fragment:28.0.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\18f967cd1f1aa47f464688d8ce03c753\AndroidManifest.xml:20:5-44
@@ -240,6 +293,8 @@ MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\andre\.gradle\caches
 MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\bf7aa9dadbd79f098a9fcd6bfd3ccc74\AndroidManifest.xml:7:5-9:41
 MERGED from [com.github.clans:fab:1.6.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f0d4e4d71a2d85dd7c8535723a83482a\AndroidManifest.xml:8:5-10:41
 MERGED from [com.github.clans:fab:1.6.4] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\f0d4e4d71a2d85dd7c8535723a83482a\AndroidManifest.xml:8:5-10:41
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:5:5-43
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:5:5-43
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\075a3c20b03b3bcf3ef343a3a3a983da\AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:1.10.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\075a3c20b03b3bcf3ef343a3a3a983da\AndroidManifest.xml:5:5-7:41
 INJECTED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml
@@ -254,3 +309,55 @@ uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:5:5-77
 	android:name
 		ADDED from C:\Users\andre\Documents\Coding\react-native-course\android\app\src\debug\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:5-81
+	android:name
+		ADDED from [:react-native-maps] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-maps\lib\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:10:22-78
+provider#com.imagepicker.FileProvider
+ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:12:9-20:20
+	android:grantUriPermissions
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:16:13-47
+	android:authorities
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:14:13-60
+	android:exported
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:15:13-37
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:13:13-56
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:17:13-19:58
+	android:resource
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:19:17-55
+	android:name
+		ADDED from [:react-native-image-picker] C:\Users\andre\Documents\Coding\react-native-course\node_modules\react-native-image-picker\android\build\intermediates\library_manifest\debug\AndroidManifest.xml:18:17-67
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:23:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:23:22-76
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:26:5-28:35
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:27:9-41
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:28:9-32
+uses-library#org.apache.http.legacy
+ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:33:9-35:40
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:35:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-maps:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\32ba3ae2da2c08e52c9a1c71add8e695\AndroidManifest.xml:34:13-50
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:16.1.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\ef775a565722e6d4771f7aa33d3b43d9\AndroidManifest.xml:24:13-79
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:23:9-25:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:8:9-10:69
+MERGED from [com.google.maps.android:android-maps-utils:0.5] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\30cfbe25f9bfa8e13d77c810ed53e73c\AndroidManifest.xml:8:9-10:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:16.2.0] C:\Users\andre\.gradle\caches\transforms-2\files-2.1\563be7cb9abf688951f3dcbe759edf28\AndroidManifest.xml:24:13-58

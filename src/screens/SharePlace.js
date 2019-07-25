@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { View, ScrollView, Button, StyleSheet, KeyboardAvoidingView } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { connect } from 'react-redux'
-import * as yup from 'yup'
 
 import { addPlace } from '../store/actions/places'
 import PlaceInput from '../components/PlaceInput'
@@ -11,12 +10,11 @@ import ImagePicker from '../components/ImagePicker'
 import H1Text from '../components/UI/H1Text'
 import imagePlaceholder from '../assets/bg.jpg'
 
-let schema = yup.object().shape({
-   placeName: yup.string().required('Required')
-})
 
 const SharePlaceScreen = (props) => {
    const [placeName, setPlaceName] = useState('')
+   const [location, setLocation] = useState(null)
+   const [image, setImage] = useState(null)
 
    Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
       if (buttonId === 'leftDrawerButton') {
@@ -30,25 +28,31 @@ const SharePlaceScreen = (props) => {
       }
    })   
 
+   const handlePickedImage = image => {
+      setImage(image)
+   }
+
+   const handlePickedLocation = location => {
+      setLocation(location)
+   }
+
    const handlePlaceNameChange = val => {
       setPlaceName(val)
    }
 
    const handleAddPlace = () => {
-      if (placeName.trim() !== '') {
-         props.addPlace(placeName)
-         setPlaceName('')
-      }
-   }
+      props.addPlace(placeName, location, image)
+      setPlaceName('')
+   } 
 
    return (
       <ScrollView>
          <KeyboardAvoidingView style={styles.container}>
             <H1Text>Share a place with us!</H1Text>
             
-            <ImagePicker source={imagePlaceholder}/>
+            <ImagePicker source={imagePlaceholder} onImagePicked={handlePickedImage} />
             
-            <LocationPicker />
+            <LocationPicker handlePickedLocation={handlePickedLocation}/>
 
             <View style={styles.inputContainer}>
                <PlaceInput 
@@ -58,7 +62,7 @@ const SharePlaceScreen = (props) => {
                <View style={styles.button}>
                   <Button
                      title="Share"
-                     disabled={!placeName.trim()}
+                     disabled={!placeName.trim() || !location || !image}
                      onPress={() => handleAddPlace()}
                   />
                </View>
@@ -86,7 +90,7 @@ const styles = StyleSheet.create({
 })
 
 const mapDispatchToProps = dispatch => ({
-   addPlace: (placeName) => dispatch(addPlace(placeName))
+   addPlace: (placeName, location, image) => dispatch(addPlace(placeName, location, image))
 })
 
 export default connect(undefined, mapDispatchToProps)(SharePlaceScreen)

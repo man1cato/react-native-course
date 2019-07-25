@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { View, Button, Image, StyleSheet } from 'react-native'
+import ImagePicker from 'react-native-image-picker'
 
 
-const ImagePicker = (props) => {
+const PickImage = props => {
+   const [pickedImage, setPickedImage] = useState(null)
+
+   const handlePickImage = () => {
+      ImagePicker.showImagePicker({ title: 'Pick an Image'}, res => {
+         if (res.didCancel) {
+            console.log('User cancelled')
+         } else if(res.error) { 
+            console.log('Error', res.error)
+         } else {
+            setPickedImage({ uri: res.uri })
+            props.onImagePicked({ 
+               uri: res.uri,
+               base64: res.data
+            })
+         }
+      })
+   }
+   
    return (
       <View style={styles.container}>
          <View style={styles.placeholder}>
-            <Image style={styles.previewImage} source={props.source} />
+            <Image style={styles.previewImage} source={pickedImage} />
          </View>
 
          <View style={styles.button}>
-            <Button title="Pick Image" onPress={() => alert('image picked!')}/>
+            <Button title="Pick Image" onPress={() => handlePickImage()}/>
          </View>
       </View>
    )
 }
-
 
 const styles = StyleSheet.create({
    container: {
@@ -38,4 +56,4 @@ const styles = StyleSheet.create({
    }
 })
 
-export default ImagePicker 
+export default PickImage 

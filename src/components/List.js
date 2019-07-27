@@ -10,7 +10,7 @@ const List = ({ items, handleSelect }) => (
       data={items}
       renderItem={(info) => (
          <TouchableOpacity
-            onPress={() => handleSelect(info.item.key)}
+            onPress={() => handleSelect(info.item.id)}
          >
             <ListItem placeName={info.item.name} placeImage={info.item.image} />
          </TouchableOpacity>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, ScrollView, Button, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { View, ScrollView, Text, Button, StyleSheet, KeyboardAvoidingView, ActivityIndicator } from 'react-native'
 import { Navigation } from 'react-native-navigation'
 import { connect } from 'react-redux'
 
@@ -60,11 +60,15 @@ const SharePlaceScreen = (props) => {
                   onChangeText={handlePlaceNameChange}
                />
                <View style={styles.button}>
-                  <Button
-                     title="Share"
-                     disabled={!placeName.trim() || !location || !image}
-                     onPress={() => handleAddPlace()}
-                  />
+                  {props.isLoading ? (
+                     <ActivityIndicator />
+                  ) : (
+                     <Button
+                        title="Share"
+                        disabled={!placeName.trim() || !location || !image}
+                        onPress={() => handleAddPlace()}
+                     />
+                  )}
                </View>
             </View>
 
@@ -89,8 +93,12 @@ const styles = StyleSheet.create({
    }
 })
 
+const mapStateToProps = state => ({
+   isLoading: state.ui.isLoading
+})
+
 const mapDispatchToProps = dispatch => ({
    addPlace: (placeName, location, image) => dispatch(addPlace(placeName, location, image))
 })
 
-export default connect(undefined, mapDispatchToProps)(SharePlaceScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SharePlaceScreen)

@@ -32,7 +32,7 @@ const PlaceDetail = (props) => {
    }, [])
 
    const handleDelete = () => {
-      props.deletePlace(props.selectedPlace.key)
+      props.deletePlace(props.selectedPlace.id)
       Navigation.pop(props.componentId)
    }
 

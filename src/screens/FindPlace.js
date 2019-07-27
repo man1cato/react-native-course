@@ -1,16 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { View, Text, TouchableOpacity, StyleSheet, Animated } from 'react-native'
 import { connect } from 'react-redux'
 import { Navigation } from 'react-native-navigation'
 
 import PlaceList from '../components/List'
-
+import { getPlaces } from '../store/actions/places'
 
 const FindPlaceScreen = (props) => {
-   const [placesLoaded, setPlacesLoaded] = useState(false)
-   const [removeAnim] = useState(new Animated.Value(1))
-   const [fadeInAnim] = useState(new Animated.Value(0))
-
    Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
       if (buttonId === 'leftDrawerButton') {
          Navigation.mergeOptions(props.componentId, {
@@ -22,6 +18,14 @@ const FindPlaceScreen = (props) => {
          })
       }
    })
+
+   useEffect(() => {
+      props.getPlaces()
+   }, [])
+
+   const [placesLoaded, setPlacesLoaded] = useState(false)
+   const [removeAnim] = useState(new Animated.Value(1))
+   const [fadeInAnim] = useState(new Animated.Value(0))
 
    const handlePlaceLoader = () => {
       Animated.timing(fadeInAnim, {
@@ -41,9 +45,9 @@ const FindPlaceScreen = (props) => {
          handlePlaceLoader()
       })
    }
-  
-   const handleSelect = (key) => {
-      const selectedPlace = props.places.find(place => place.key === key)
+
+   const handleSelect = (id) => {
+      const selectedPlace = props.places.find(place => place.id === id)
 
       Navigation.push(props.componentId, {
          component: {
@@ -62,37 +66,31 @@ const FindPlaceScreen = (props) => {
       })
    }
 
-   let content = (
-      <Animated.View style={{ 
-         opacity: removeAnim,
-         transform: [
-            {
-               scale: removeAnim.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [12, 1]
-               })
-            }
-         ]  
-      }}>
-         <TouchableOpacity onPress={() => handlePlaceSearch()}>
-            <View style={styles.searchButton}>
-               <Text style={styles.searchButtonText}>Find Places</Text>
-            </View>
-         </TouchableOpacity>
-      </Animated.View>
-   )
-
-   if (placesLoaded) {
-      content = (
-         <Animated.View style={{ opacity: fadeInAnim }}>
-            <PlaceList items={props.places} handleSelect={handleSelect} />
-         </Animated.View>
-      )
-   }
-
    return (
       <View style={placesLoaded ? null : styles.buttonContainer}>
-         {content}
+         {placesLoaded ? (
+            <Animated.View style={{ opacity: fadeInAnim }}>
+               <PlaceList items={props.places} handleSelect={handleSelect} />
+            </Animated.View>
+         ) : (
+            <Animated.View style={{
+               opacity: removeAnim,
+               transform: [
+                  {
+                     scale: removeAnim.interpolate({
+                        inputRange: [0, 1],
+                        outputRange: [12, 1]
+                     })
+                  }
+               ]
+            }}>
+               <TouchableOpacity onPress={() => handlePlaceSearch()}>
+                  <View style={styles.searchButton}>
+                     <Text style={styles.searchButtonText}>Find Places</Text>
+                  </View>
+               </TouchableOpacity>
+            </Animated.View>      
+         )}
       </View>
    )
 }
@@ -120,4 +118,8 @@ const mapStateToProps = state => ({
    places: state.places.places
 })
 
-export default connect(mapStateToProps)(FindPlaceScreen)
+const mapDispatchToProps = dispatch => ({
+   getPlaces: () => dispatch(getPlaces())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(FindPlaceScreen)

@@ -10,7 +10,7 @@ const PickImage = props => {
       ImagePicker.showImagePicker({ title: 'Pick an Image'}, res => {
          if (res.didCancel) {
             console.log('User cancelled')
-         } else if(res.error) { 
+         } else if (res.error) { 
             console.log('Error', res.error)
          } else {
             setPickedImage({ uri: res.uri })

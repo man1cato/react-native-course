@@ -14,6 +14,7 @@ import com.reactnativenavigation.react.ReactGateway;
 import com.oblador.vectoricons.VectorIconsPackage;
 import com.airbnb.android.react.maps.MapsPackage;
 import com.imagepicker.ImagePickerPackage;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 
 import java.util.Arrays;
 import java.util.List;
@@ -40,7 +41,8 @@ public class MainApplication extends NavigationApplication {
       return Arrays.<ReactPackage>asList(
           new VectorIconsPackage(),
           new MapsPackage(),
-          new ImagePickerPackage()
+          new ImagePickerPackage(),
+          new AsyncStoragePackage()
       );
   }
 

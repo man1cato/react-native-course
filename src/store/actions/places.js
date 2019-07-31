@@ -1,23 +1,27 @@
 import _ from 'lodash'
 
-import { uiStartLoading, uiStopLoading } from './ui'
-
+import { uiStartLoading, uiStopLoading, } from './ui'
+import { authGetToken } from './auth'
 
 export const getPlaces = () => {
-   return dispatch => {
-      fetch('https://react-native-course-a02d2.firebaseio.com/places.json')
-      .then(res => res.json())
-      .then(parsedRes => {
-         dispatch(setPlaces(_.map(parsedRes, (place, key) => ({
-            ...place,
-            image: { uri: place.imageUrl },
-            id: key
-         }))))
-      })
-      .catch(err => {
+   return async dispatch => {
+      try {
+         const token = await dispatch(authGetToken())
+         const res = await fetch(`https://react-native-course-a02d2.firebaseio.com/places.json?auth=${token}`)
+         const body = await res.json()
+         if (body.error) {
+            throw new Error(body.error.message)
+         } else {
+            dispatch(setPlaces(_.map(body, (place, key) => ({
+               ...place,
+               image: { uri: place.imageUrl },
+               id: key
+            }))))
+         }
+      } catch (err) {
          console.log(err)
          alert('Something went wrong; please try again.')
-      })
+      }
    }
 }
 
@@ -27,53 +31,57 @@ export const setPlaces = places => ({
 }) 
 
 export const addPlace = (placeName, location, image) => {
-   return dispatch => {
-      dispatch(uiStartLoading())
+   return async dispatch => {
+      try {
+         dispatch(uiStartLoading())
 
-      fetch('https://us-central1-react-native-course-a02d2.cloudfunctions.net/storeImage', {
-         method: 'POST',
-         body: JSON.stringify({
-            image: image.base64
+         const token = await dispatch(authGetToken())         
+         const imageRes = await fetch('https://us-central1-react-native-course-a02d2.cloudfunctions.net/storeImage', {
+            method: 'POST',
+            headers: {
+               'Authorization': 'Bearer ' + token
+            },
+            body: JSON.stringify({
+               image: image.base64
+            })
          })
-      })
-      .then(res => res.json())
-      .then(parsedRes => {
-         return fetch('https://react-native-course-a02d2.firebaseio.com/places.json', {
+         const imageBody = await imageRes.json()
+   
+         const placesRes = await fetch(`https://react-native-course-a02d2.firebaseio.com/places.json?auth=${token}`, {
             method: 'POST',
             body: JSON.stringify({
                name: placeName,
                location,
-               imageUrl: parsedRes.imageUrl
+               imageUrl: imageBody.imageUrl
             })
          })
-      })
-      .then(res => res.json())
-      .then(parsedRes => {
-         console.log(parsedRes)
+         const placesBody = await placesRes.json()
+         if (placesBody.error) { console.log(placesBody.error.message) }
+
          dispatch(uiStopLoading())
-      })
-      .catch(err => {
+      } catch (err) {
          console.log(err)
          alert('Something went wrong; please try again.')
          dispatch(uiStopLoading())
-      })
+      }
    }
 }
 
 export const deletePlace = (placeId) => {
-   return dispatch => {
-      fetch(`https://react-native-course-a02d2.firebaseio.com/places/${placeId}.json`, {
-         method: 'DELETE'
-      })
-      .then(() => {
+   return async (dispatch, getState) => {
+      try {
+         const token = await dispatch(authGetToken())
+         const res = await fetch(`https://react-native-course-a02d2.firebaseio.com/places/${placeId}.json?auth=${token}`, {
+            method: 'DELETE'
+         })
+         console.log(res)
          dispatch({
             type: 'DELETE_PLACE',
             placeId
          })
-      })
-      .catch(err => {
+      } catch (err) {
          console.log(err)
          alert('Something went wrong; please try again.')
-      })
+      }
    }
 } 

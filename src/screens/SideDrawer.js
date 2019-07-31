@@ -1,12 +1,15 @@
 import React from 'react'
 import { View, Text, TouchableOpacity, Platform, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 import Icon from '../../node_modules/react-native-vector-icons/Ionicons'
+
+import { authLogout } from '../store/actions/auth'
 
 
 const SideDrawer = props => {
    return (
       <View style={styles.container}>
-         <TouchableOpacity>
+         <TouchableOpacity onPress={() => props.authLogout()}>
             <View style={styles.drawerItem}>
                <Icon 
                   style={styles.drawerItemIcon} 
@@ -36,4 +39,8 @@ const styles = StyleSheet.create({
    }
 })
 
-export default SideDrawer
+const mapDispatchToProps = dispatch => ({
+   authLogout: () => dispatch(authLogout())
+})
+
+export default connect(null, mapDispatchToProps)(SideDrawer)

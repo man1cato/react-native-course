@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import { View, Text, Dimensions, ImageBackground, StyleSheet, KeyboardAvoidingView } from 'react-native'
+import { View, Text, Dimensions, ImageBackground, StyleSheet, KeyboardAvoidingView, ActivityIndicator } from 'react-native'
 import { connect } from 'react-redux'
 import * as yup from 'yup'
 import update from 'immutability-helper'
 import _ from 'lodash'
 
-import startMainTabs from './startMainTabs'
 import DefaultInput from '../components/UI/DefaultInput'
 import H1Text from '../components/UI/H1Text'
 import ButtonWithBackground from '../components/UI/ButtonWithBackground'
-import { tryAuth } from '../store/actions/auth'
+import { tryAuth, authAutoSignIn } from '../store/actions/auth'
 import backgroundImage from '../assets/bg.jpg'
 
 
@@ -24,6 +23,8 @@ let schema = yup.object().shape({
 
 const AuthScreen = props => {
    useEffect(() => {
+      props.authAutoSignIn()
+      
       const handler = (dims) => setViewMode(dims.window.height > 500 ? 'portrait' : 'landscape')
       Dimensions.addEventListener('change', handler)
       return () => {
@@ -96,8 +97,7 @@ const AuthScreen = props => {
          email: controls.email.value,
          password: controls.password.value
       }
-      props.login(authData)
-      startMainTabs()
+      props.tryAuth(authData, authMode)
    }
 
    return (
@@ -158,13 +158,17 @@ const AuthScreen = props => {
                </View>
             </View>
 
-            <ButtonWithBackground
-               color="#29aaf4"
-               disabled={!controls.email.valid || !controls.password.valid || authMode==='signup' && !controls.passwordConfirmation.valid}
-               onPress={() => handleLogin()}
-            >
-               Submit
-            </ButtonWithBackground>
+            {props.isLoading ? (
+               <ActivityIndicator />
+            ) : (
+               <ButtonWithBackground
+                  color="#29aaf4"
+                  disabled={!controls.email.valid || !controls.password.valid || authMode==='signup' && !controls.passwordConfirmation.valid}
+                  onPress={() => handleLogin()}
+               >
+                  Submit
+               </ButtonWithBackground>
+            )}
          </KeyboardAvoidingView>
       </ImageBackground>
    )
@@ -205,8 +209,13 @@ const styles = StyleSheet.create({
    }
 })
 
-const mapDispatchToProps = dispatch => ({
-   login: (authData) => dispatch(tryAuth(authData))
+const mapStateToProps = state => ({
+   isLoading: state.ui.isLoading
 })
 
-export default connect(null, mapDispatchToProps)(AuthScreen)
+const mapDispatchToProps = dispatch => ({
+   tryAuth: (authData, authMode) => dispatch(tryAuth(authData, authMode)),
+   authAutoSignIn: () => dispatch(authAutoSignIn())
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(AuthScreen)

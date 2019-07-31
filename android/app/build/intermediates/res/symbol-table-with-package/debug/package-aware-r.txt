@@ -1555,6 +1555,7 @@ raw amu_poly_style_boolean_numeric
 raw amu_unknwown_folder
 raw amu_unsupported
 raw amu_visibility_ground_overlay
+string FIREBASE_WEB_API_KEY
 string abc_action_bar_home_description
 string abc_action_bar_up_description
 string abc_action_menu_overflow_description

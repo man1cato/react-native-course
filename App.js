@@ -24,11 +24,11 @@ Navigation.registerComponent('awesome-places.AuthScreen', () => props => ReduxSc
 Navigation.registerComponent('awesome-places.SharePlaceScreen', () => props => ReduxScreen(SharePlaceScreen, props))
 Navigation.registerComponent('awesome-places.FindPlaceScreen', () => props => ReduxScreen(FindPlaceScreen, props))
 Navigation.registerComponent('awesome-places.PlaceDetailScreen', () => props => ReduxScreen(PlaceDetailScreen, props))
-Navigation.registerComponent('awesome-places.SideDrawer', () => SideDrawer)
+Navigation.registerComponent('awesome-places.SideDrawer', () => props => ReduxScreen(SideDrawer, props))
 
 
 // Start app
-Navigation.setRoot({
+export default () => Navigation.setRoot({
   root: {
     stack: {
       children: [{

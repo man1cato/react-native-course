@@ -7,20 +7,29 @@ import PlaceList from '../components/List'
 import { getPlaces } from '../store/actions/places'
 
 const FindPlaceScreen = (props) => {
-   Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
-      if (buttonId === 'leftDrawerButton') {
-         Navigation.mergeOptions(props.componentId, {
-            sideMenu: {
-               left: {
-                  visible: true
-               }
-            }
-         })
-      }
-   })
 
    useEffect(() => {
-      props.getPlaces()
+      const navigationButtonEventListener = Navigation.events().registerNavigationButtonPressedListener(({ buttonId }) => {
+         if (buttonId === 'leftDrawerButton') {
+            Navigation.mergeOptions(props.componentId, {
+               sideMenu: {
+                  left: {
+                     visible: true
+                  }
+               }
+            })
+         }
+      })
+      const screenEventListener = Navigation.events().registerComponentDidAppearListener(({ componentId }) => {
+         if (componentId === props.componentId) {
+            props.getPlaces()
+         }
+      })
+
+      return () => {
+         navigationButtonEventListener.remove()
+         screenEventListener.remove()
+      }
    }, [])
 
    const [placesLoaded, setPlacesLoaded] = useState(false)

@@ -47,7 +47,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDj5dPrtbvVa1oNMDzzHri3pRpw3uPUK70" />
+            android:value="AIzaSyB_iVAmuxsGnYchzBSbiJMIU6lvYj8wY5g" />
 
         <provider
             android:name="com.imagepicker.FileProvider"

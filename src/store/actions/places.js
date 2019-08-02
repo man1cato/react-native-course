@@ -30,6 +30,10 @@ export const setPlaces = places => ({
    places
 }) 
 
+export const startAddPlace = () => ({
+   type: 'START_ADD_PLACE'
+})
+
 export const addPlace = (placeName, location, image) => {
    return async dispatch => {
       try {
@@ -52,13 +56,15 @@ export const addPlace = (placeName, location, image) => {
             body: JSON.stringify({
                name: placeName,
                location,
-               imageUrl: imageBody.imageUrl
+               imageUrl: imageBody.imageUrl,
+               imagePath: imageBody.imagePath
             })
          })
          const placesBody = await placesRes.json()
          if (placesBody.error) { console.log(placesBody.error.message) }
 
          dispatch(uiStopLoading())
+         dispatch(placeAdded())
       } catch (err) {
          console.log(err)
          alert('Something went wrong; please try again.')
@@ -66,6 +72,10 @@ export const addPlace = (placeName, location, image) => {
       }
    }
 }
+
+export const placeAdded = () => ({
+   type: 'PLACE_ADDED'
+})
 
 export const deletePlace = (placeId) => {
    return async (dispatch, getState) => {
